@@ -35,7 +35,7 @@ def initialize_enemies(num_of_enemies):
     enemy_x = []
     enemy_y = []
     enemy_x_change = []
-    enemy_health = []  # New list to track health of each enemy
+    enemy_health = []  
     
     for i in range(num_of_enemies):
         col = i % grid_columns
@@ -45,7 +45,7 @@ def initialize_enemies(num_of_enemies):
         enemy_x.append(x_position)
         enemy_y.append(y_position)
         enemy_x_change.append(4)
-        enemy_health.append(1)  # Initial health set to 1 (one bullet to destroy)
+        enemy_health.append(1)  
     
     return enemy_x, enemy_y, enemy_x_change, enemy_health
 
@@ -58,7 +58,7 @@ enemy_x, enemy_y, enemy_x_change, enemy_health = initialize_enemies(current_num_
 bullet_x = 0
 bullet_y = 480
 bullet_y_change = 10
-bullet_state = "ready"  # "ready" means you can't see the bullet, "fire" means bullet is moving
+bullet_state = "ready"  
 
 def draw_bullet(x, y):
     pygame.draw.ellipse(screen, (0, 0, 255), (x, y, 10, 20))
@@ -88,7 +88,7 @@ threshold_score = 2000
 # Game loop
 running = True
 while running:
-    screen.fill((0, 0, 0))  # RGB - Black background
+    screen.fill((0, 0, 0))  # Black background
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -134,8 +134,7 @@ while running:
         enemy_x[i] += enemy_x_change[i]
         if enemy_x[i] <= 0 or enemy_x[i] >= WIDTH - enemy_size:
             enemy_x_change[i] = -enemy_x_change[i]  # Change direction
-            enemy_y[i] += 40  # Only this enemy drops when it hits the wall
-
+            enemy_y[i] += 40  
         # Check if enemy goes past player
         if enemy_y[i] > player_y:
             player_health -= 1
@@ -150,7 +149,7 @@ while running:
         if collision:
             bullet_y = 480
             bullet_state = "ready"
-            enemy_health[i] -= 1  # Reduce health by 1 on collision
+            enemy_health[i] -= 1  
     
             # If enemy's health reaches zero, reset its position and increment score
             if enemy_health[i] <= 0:
@@ -174,7 +173,7 @@ while running:
 
     draw_player(player_x, player_y)
     show_health(player_health)
-    show_score(score)  # Display the score
+    show_score(score)  
     pygame.display.update()
 
     # Control the frame rate
