@@ -14,7 +14,7 @@ This program was written in python using PyGame
 
 # Useful Websites
 
-- [realpython]((https://realpython.com/pygame-a-primer/))
+- [realpython](https://realpython.com/pygame-a-primer/)
 - [geeksforgeeks](https://www.geeksforgeeks.org/python-for-game-development-getting-started-with-pygame/)
 
 # Future Work
